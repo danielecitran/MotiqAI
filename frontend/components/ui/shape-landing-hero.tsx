@@ -78,7 +78,7 @@ function ElegantShape({
 
 function HeroGeometric({
   title1 = "Create UGC Videos",
-  title2 = "in Seconds",
+  title2 = "in Minutes",
 }: {
   title1?: string;
   title2?: string;
@@ -215,8 +215,6 @@ function HeroGeometric({
               animate="visible"
             >
               <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                Replace yourself with any other person you want.
-                <br />
                 Exclusively for ToolSuite users.
               </p>
             </motion.div>
@@ -302,8 +300,8 @@ function HeroGeometric({
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              href="#features"
-              aria-label="Zu den Funktionen scrollen"
+              href="#examples"
+              aria-label="Zu den Beispielvideos scrollen"
               className="mt-8 inline-flex items-center justify-center rounded-full p-2 text-white/45 transition-colors hover:text-white/75"
             >
               <motion.span

@@ -12,20 +12,6 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={
           <Image
-            src="/dashboard.svg"
-            alt=""
-            width={16}
-            height={16}
-            aria-hidden="true"
-          />
-        }
-        title="Einfaches Link-Management"
-        description="Behalte alle gekürzten Links zentral im Blick und verwalte sie schnell an einem Ort."
-      />
-      <GridItem
-        area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-        icon={
-          <Image
             src="/bolt.svg"
             alt=""
             width={16}
@@ -33,11 +19,11 @@ export function GlowingEffectFeatures() {
             aria-hidden="true"
           />
         }
-        title="Schnelles Kürzen in wenigen Sekunden"
-        description="Lange Links einfügen, kurz machen und direkt teilen, und das ohne komplizierten Workflow."
+        title="Gesture Control"
+        description="Most AI video tools lose hand detail. MotiqAI captures finger movement, pointing, waves, and natural gestures so your character performs exactly like you did."
       />
       <GridItem
-        area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
+        area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={
           <Image
             src="/shield.svg"
@@ -47,36 +33,50 @@ export function GlowingEffectFeatures() {
             aria-hidden="true"
           />
         }
-        title="Sichere Verwaltung"
-        description="Lösche deine gekürzten Links jederzeit und behalte die volle Kontrolle."
+        title="Expression Sync"
+        description="Map smiles, eye movement, and lip articulation from your recording onto any character. Keep the emotional cues that make audiences connect instead of scroll past."
+      />
+      <GridItem
+        area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
+        icon={
+          <Image
+            src="/dashboard.svg"
+            alt=""
+            width={16}
+            height={16}
+            aria-hidden="true"
+          />
+        }
+        title="Built for UGC Creatives"
+        description="Create product ads, TikToks, and social proof without agencies or creator networks. One recording becomes scroll stopping content that feels authentic because it starts with your real performance."
       />
       <GridItem
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/12]"
         icon={
           <Image
-            src="/query_stats.svg"
+            src="/window.svg"
             alt=""
             width={16}
             height={16}
             aria-hidden="true"
           />
         }
-        title="Klick-Analysen in Echtzeit"
-        description="Sieh sofort, wie oft deine Kurzlinks geöffnet werden und welche Links am besten performen."
+        title="Cinematic Realism"
+        description="Export broadcast ready output up to 1080p at 30fps. Smooth pans, controlled zooms, and consistent lighting give every clip a polished look for your store and paid social."
       />
       <GridItem
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/12]"
         icon={
           <Image
-            src="/qr_code.svg"
+            src="/file.svg"
             alt=""
             width={16}
             height={16}
             aria-hidden="true"
           />
         }
-        title="QR-Codes für jeden Link"
-        description="Generiere passende QR-Codes mit nur einem Klick für Print, Events oder Social Media."
+        title="Minutes, Not Days"
+        description="Record yourself once on your phone, pick a character, and get a finished UGC style clip fast. No editing suite, no reshoots, no waiting on freelancers."
       />
     </ul>
   );

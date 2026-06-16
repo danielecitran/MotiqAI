@@ -29,6 +29,10 @@ export function Header() {
 
   const links = [
     {
+      label: "Examples",
+      href: "/#examples",
+    },
+    {
       label: "Features",
       href: "/#features",
     },

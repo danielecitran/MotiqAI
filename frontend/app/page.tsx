@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { ExampleVideosSection } from "@/components/example-videos-section";
 import { GlowingEffectFeatures } from "@/components/glowing-effect-featutes";
 import { BGPattern } from "@/components/bg-pattern";
 import { useAuth } from "@/lib/auth-context";
@@ -14,9 +15,10 @@ export default function Home() {
       <HeroGeometric />
       {!isAuthenticated && (
         <>
+          <ExampleVideosSection />
           <section
             id="features"
-            className="dark mx-auto w-full max-w-6xl scroll-mt-24 px-4 pb-20 md:scroll-mt-28 md:px-6"
+            className="dark mx-auto w-full max-w-6xl scroll-mt-24 px-4 pt-10 pb-20 md:scroll-mt-28 md:px-6 md:pt-16"
           >
             <GlowingEffectFeatures />
           </section>

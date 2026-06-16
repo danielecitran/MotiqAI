@@ -23,6 +23,9 @@ export function Footer() {
 
         {!isAuthenticated && (
           <nav className="mt-9 flex flex-col items-center gap-3 text-sm font-semibold tracking-[0.08em] uppercase text-white/78">
+            <Link href="/#examples" className="transition-colors hover:text-white">
+              Examples
+            </Link>
             <Link href="/#features" className="transition-colors hover:text-white">
               Features
             </Link>
