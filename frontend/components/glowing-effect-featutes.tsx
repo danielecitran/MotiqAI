@@ -12,7 +12,7 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={
           <Image
-            src="/bolt.svg"
+            src="/waving_hand.svg"
             alt=""
             width={16}
             height={16}
@@ -26,7 +26,7 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={
           <Image
-            src="/shield.svg"
+            src="/excited.svg"
             alt=""
             width={16}
             height={16}
@@ -40,7 +40,7 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={
           <Image
-            src="/dashboard.svg"
+            src="/storefront.svg"
             alt=""
             width={16}
             height={16}
@@ -54,7 +54,7 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/12]"
         icon={
           <Image
-            src="/window.svg"
+            src="/movie_filter.svg"
             alt=""
             width={16}
             height={16}
@@ -68,7 +68,7 @@ export function GlowingEffectFeatures() {
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/12]"
         icon={
           <Image
-            src="/file.svg"
+            src="/bolt.svg"
             alt=""
             width={16}
             height={16}

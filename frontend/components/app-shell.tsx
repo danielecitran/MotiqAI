@@ -1,7 +1,4 @@
-"use client";
-
 import type { ReactNode } from "react";
-import { usePathname } from "next/navigation";
 import { Header } from "@/components/ui/header";
 import { Footer } from "@/components/ui/footer";
 
@@ -10,18 +7,11 @@ interface AppShellProps {
 }
 
 export function AppShell({ children }: AppShellProps) {
-  const pathname = usePathname();
-  const hideChrome =
-    pathname === "/anmelden" ||
-    pathname === "/registrieren" ||
-    pathname === "/abmelden" ||
-    pathname.startsWith("/dashboard");
-
   return (
     <>
-      {!hideChrome && <Header />}
+      <Header />
       {children}
-      {!hideChrome && <Footer />}
+      <Footer />
     </>
   );
 }

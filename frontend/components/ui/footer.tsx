@@ -1,11 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "@/lib/auth-context";
 
 export function Footer() {
-  const { isAuthenticated } = useAuth();
   const year = new Date().getFullYear();
 
   return (
@@ -21,19 +17,17 @@ export function Footer() {
           />
         </Link>
 
-        {!isAuthenticated && (
-          <nav className="mt-9 flex flex-col items-center gap-3 text-sm font-semibold tracking-[0.08em] uppercase text-white/78">
-            <Link href="/#examples" className="transition-colors hover:text-white">
-              Examples
-            </Link>
-            <Link href="/#features" className="transition-colors hover:text-white">
-              Features
-            </Link>
-            <Link href="/#about" className="transition-colors hover:text-white">
-              About
-            </Link>
-          </nav>
-        )}
+        <nav className="mt-9 flex flex-col items-center gap-3 text-sm font-semibold tracking-[0.08em] uppercase text-white/78">
+          <Link href="/#examples" className="transition-colors hover:text-white">
+            Examples
+          </Link>
+          <Link href="/#features" className="transition-colors hover:text-white">
+            Features
+          </Link>
+          <Link href="/#about" className="transition-colors hover:text-white">
+            About
+          </Link>
+        </nav>
 
         <p className="mt-8 text-xs text-white/45">
           © {year} ToolSuite LLC. All rights reserved.
