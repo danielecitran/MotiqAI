@@ -4,9 +4,6 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Film,
-  ImageIcon,
-  Sparkles,
   ChevronDown,
   Upload,
   X,
@@ -46,7 +43,6 @@ function Dropzone({
   };
 
   return (
-    /* Outer shell: gradient background acts as the border ring */
     <div
       role="button"
       tabIndex={0}
@@ -66,10 +62,9 @@ function Dropzone({
           : "bg-[linear-gradient(160deg,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.06)_50%,rgba(255,255,255,0.14)_100%)] hover:bg-[linear-gradient(160deg,rgba(255,255,255,0.38)_0%,rgba(255,255,255,0.08)_50%,rgba(255,255,255,0.2)_100%)]",
       )}
     >
-      {/* Inner card */}
       <div
         className={cn(
-          "flex min-h-[148px] flex-col items-center justify-center gap-4 rounded-[1.2rem] px-5 py-8 transition-colors duration-200",
+          "flex min-h-[148px] flex-col items-center justify-center rounded-[1.2rem] px-5 py-8 transition-colors duration-300 ease-out",
           dragging
             ? "bg-indigo-500/8"
             : "bg-[#111113] group-hover:bg-[#131315]",
@@ -105,17 +100,43 @@ function Dropzone({
             </button>
           </div>
         ) : (
-          <>
-            <div className="text-white/25 transition-colors duration-200 group-hover:text-white/55">
-              {icon}
+          <div className="relative w-full min-h-[72px]">
+            <div
+              className={cn(
+                "flex flex-col items-center gap-4 text-center",
+                "transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,transform]",
+                dragging
+                  ? "pointer-events-none translate-y-[-2px] scale-[0.99] opacity-0 delay-0"
+                  : "translate-y-0 scale-100 opacity-100 delay-100 group-hover:translate-y-[-2px] group-hover:scale-[0.99] group-hover:opacity-0 group-hover:delay-0",
+              )}
+            >
+              <div className="text-white/25 transition-colors duration-500 group-hover:text-white/15">
+                {icon}
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white/85">{label}</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/35">
+                  {sublabel}
+                </p>
+              </div>
             </div>
-            <div className="text-center">
-              <p className="text-sm font-bold text-white/85">{label}</p>
-              <p className="mt-1 text-xs leading-relaxed text-white/35">
-                {sublabel}
-              </p>
+
+            <div
+              className={cn(
+                "absolute inset-0 flex flex-col items-center justify-center gap-3 text-center",
+                "transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,transform]",
+                dragging
+                  ? "translate-y-0 scale-100 opacity-100 delay-75"
+                  : "pointer-events-none translate-y-[2px] scale-[0.99] opacity-0 delay-0 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-hover:delay-75",
+              )}
+            >
+              <Upload className="h-5 w-5 text-white/85" strokeWidth={1.75} />
+              <div>
+                <p className="text-sm font-bold text-white">Upload</p>
+                <p className="mt-1 text-xs text-white/45">Choose a file</p>
+              </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
@@ -168,7 +189,16 @@ export function LeftPanel() {
           <Dropzone
             label="Motion Video (Base)"
             sublabel="Used as motion reference (3–30s)"
-            icon={<Film className="h-5 w-5" />}
+            icon={
+              <Image
+                src="/video-camera.svg"
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6 opacity-45"
+                aria-hidden="true"
+              />
+            }
             accept="video/*"
             onFile={setMotionVideo}
             file={motionVideo}
@@ -178,7 +208,16 @@ export function LeftPanel() {
           <Dropzone
             label="Character Image"
             sublabel="Character image to replace the motion"
-            icon={<ImageIcon className="h-5 w-5" />}
+            icon={
+              <Image
+                src="/character_image.svg"
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6 opacity-45"
+                aria-hidden="true"
+              />
+            }
             accept="image/*"
             onFile={setCharacterImage}
             file={characterImage}
@@ -254,13 +293,23 @@ export function LeftPanel() {
           transition={{ type: "spring", stiffness: 500, damping: 28 }}
           disabled={!motionVideo || !characterImage}
           className={cn(
-            "relative flex w-full items-center justify-center gap-2.5 rounded-full py-3.5 text-sm font-semibold tracking-wide transition-all duration-200",
+            "relative flex w-full items-center justify-center gap-1.5 rounded-full py-3.5 text-sm font-semibold tracking-wide transition-all duration-200",
             motionVideo && characterImage
               ? "bg-linear-to-r from-indigo-500 to-indigo-600 text-white shadow-[0_4px_20px_rgba(99,102,241,0.35)] hover:shadow-[0_4px_28px_rgba(99,102,241,0.48)]"
               : "cursor-not-allowed bg-white/6 text-white/30",
           )}
         >
-          <Sparkles className="h-4 w-4" />
+          <Image
+            src="/sparkle_white.svg"
+            alt=""
+            width={16}
+            height={16}
+            className={cn(
+              "h-4 w-4 shrink-0",
+              motionVideo && characterImage ? "opacity-100" : "opacity-30",
+            )}
+            aria-hidden="true"
+          />
           Generate Video
         </motion.button>
       </div>
