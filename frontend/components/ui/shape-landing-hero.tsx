@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -189,8 +190,8 @@ function HeroGeometric({
               whileTap={{ scale: 0.99 }}
               transition={{ type: "spring", stiffness: 500, damping: 28 }}
             >
-              <button
-                type="button"
+              <Link
+                href="/dashboard"
                 className="inline-flex h-[52px] min-w-[280px] items-center justify-center gap-3 rounded-xl border border-white/12 bg-white px-7 shadow-[0_1px_2px_rgba(0,0,0,0.18),0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-200 hover:border-white/20 hover:bg-neutral-50 hover:shadow-[0_2px_6px_rgba(0,0,0,0.14),0_8px_20px_rgba(0,0,0,0.1)]"
               >
                 <Image
@@ -207,7 +208,7 @@ function HeroGeometric({
                     ToolSuite
                   </span>
                 </span>
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
 

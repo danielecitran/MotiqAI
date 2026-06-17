@@ -7,6 +7,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { useScroll } from "@/components/ui/use-scroll";
+import { useRouter } from "next/navigation";
 
 const links = [
   {
@@ -26,6 +27,7 @@ const links = [
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
+  const router = useRouter();
 
   React.useEffect(() => {
     if (open) {
@@ -75,7 +77,7 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <Button variant="outline" type="button">
+          <Button variant="outline" type="button" onClick={() => router.push("/dashboard")}>
             Log in with ToolSuite
           </Button>
         </div>
@@ -124,7 +126,7 @@ export function Header() {
               variant="outline"
               className="w-full"
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); router.push("/dashboard"); }}
             >
               Log in with ToolSuite
             </Button>

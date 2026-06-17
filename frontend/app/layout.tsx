@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { AppShell } from "@/components/app-shell";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -33,7 +32,7 @@ export default function RootLayout({
         id="top"
         className={`${plusJakartaSans.className} font-sans antialiased`}
       >
-        <AppShell>{children}</AppShell>
+        {children}
       </body>
     </html>
   );
