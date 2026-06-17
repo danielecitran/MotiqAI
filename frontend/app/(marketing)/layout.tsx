@@ -1,3 +1,4 @@
+import { preload } from "react-dom";
 import { AppShell } from "@/components/app-shell";
 
 export default function MarketingLayout({
@@ -5,5 +6,7 @@ export default function MarketingLayout({
 }: {
   children: React.ReactNode;
 }) {
+  preload("/motiqai_logo.svg", { as: "image", type: "image/svg+xml" });
+
   return <AppShell>{children}</AppShell>;
 }

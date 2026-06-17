@@ -189,6 +189,8 @@ function SplitViewDemoVideo() {
         muted
         playsInline
         preload="auto"
+        // @ts-expect-error fetchPriority is valid on video in modern browsers
+        fetchPriority="high"
         disablePictureInPicture
         controls={false}
         tabIndex={-1}
@@ -215,6 +217,7 @@ function SplitViewDemoVideo() {
           alt="Referenzbild Character"
           width={76}
           height={76}
+          priority
           className="h-[4.25rem] w-[4.25rem] rounded-xl object-cover shadow-[0_4px_16px_rgba(0,0,0,0.45)] sm:h-[4.75rem] sm:w-[4.75rem]"
         />
       </div>

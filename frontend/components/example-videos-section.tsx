@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -23,14 +23,40 @@ function AutoplayVideo({
   src,
   className,
   label,
+  eager = false,
 }: {
   src: string;
   className?: string;
   label: string;
+  eager?: boolean;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isReady, setIsReady] = useState(eager);
 
   useEffect(() => {
+    if (eager) return;
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "320px" },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [eager]);
+
+  useEffect(() => {
+    if (!isReady) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -50,27 +76,33 @@ function AutoplayVideo({
       video.removeEventListener("pause", keepPlaying);
       video.removeEventListener("ended", keepPlaying);
     };
-  }, []);
+  }, [isReady]);
 
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-      disablePictureInPicture
-      controls={false}
-      tabIndex={-1}
-      aria-label={label}
-      onContextMenu={(event) => event.preventDefault()}
-      className={cn(
-        "pointer-events-none h-full w-full select-none object-cover",
-        className,
-      )}
-    />
+    <div
+      ref={containerRef}
+      className={cn("h-full w-full bg-white/4", className)}
+    >
+      {isReady ? (
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          // @ts-expect-error fetchPriority is valid on video in modern browsers
+          fetchPriority={eager ? "high" : "low"}
+          disablePictureInPicture
+          controls={false}
+          tabIndex={-1}
+          aria-label={label}
+          onContextMenu={(event) => event.preventDefault()}
+          className="pointer-events-none h-full w-full select-none object-cover"
+        />
+      ) : null}
+    </div>
   );
 }
 

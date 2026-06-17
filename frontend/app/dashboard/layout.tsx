@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
+import { DashboardAssetPreloads } from "@/components/dashboard/dashboard-asset-preloads";
 
 export const metadata: Metadata = {
   title: "Dashboard | MotiqAI",
@@ -14,6 +15,7 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="dark relative h-screen overflow-hidden bg-[#030303]">
+      <DashboardAssetPreloads />
       {/* Header schwebt absolut über beiden Panels */}
       <DashboardHeader />
       {/* Panels füllen volle Bildschirmhöhe, pt-[60px] sitzt innerhalb der Panels */}
